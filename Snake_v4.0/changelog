@@ -1,0 +1,68 @@
+Snake_v2.0
+Game engine:
+- Application architecture structured and defined
+- Base classes defined
+- Random movements
+- Variable number of snakes
+- Only works for a grid where the number of collumns and rows is the same
+- Resource manager (Board) implemented
+- JavaDoc for Cell and Snake classes
+- Snakes' threads ending when reaching the right border of the board
+
+Graphical User Interface:
+- GUI Crashing with concurrent modification exception when attempting to
+iterate through a Snake occupied cells list
+- Communication between GUI and game engine done by converting the Snake Cells'
+list into an array of int which contain their positions
+
+
+TODO:
+- Assure synchronization of the shared resources (Cell)
+- Assure synchronization of each Snake occupied cells list
+- Implement Observer/Observable pattern
+- Implement features (food, etc..)
+- Implement thread waiting and pursuing when a cell isn't empty
+- Implement a variable grid (i.e. with different number of rows and collumns)
+- Assign different color for each snake
+- Implement client/server communication by the TCP protocol
+
+
+Snake_v2.1.1
+Game engine:
+- Synchronization of the shared resources (Cell) implemented
+- Synchronization of each Snake occupied cells list implemented
+- The snakes get stuck when they reach a corner, if this happens, the snake
+should be interrupted and be given an end game message.
+
+TODO:
+- Implement Observer/Observable pattern
+- Implement features (food, etc..)
+- Implement thread waiting and pursuing when a cell isn't empty
+- Implement a variable grid (i.e. with different number of rows and collumns)
+- Assign different color for each snake
+- Implement client/server communication by the TCP protocol
+- Interrupt a snake that gets stuck in a corner and give an end game message
+
+
+Snake_v2.2.1
+Game engine:
+- Thread waiting and pursuing when a cell isn't empty
+- Snake pursuing a cell with mouse handling
+	- The Snakes will have to know the Game class (still wondering why... we'll see...)
+- A random number of obstacles is placed in load time
+
+TODO:
+- Implement Observer/Observable pattern (como implemento isto?? ver v2.1.2)
+	- The snakes are constantly changing the game state and have to call a method
+	that calls setChanged() on Game each time they make a move. This method has to
+	be synchronized so the Game class can pass coeherent info to the GUI.
+	- Have to pass a serializable object with the snakes' position info to the
+	socket to the client via the update method
+- Implement features (food, etc..)
+- Implement a variable grid (i.e. with different number of rows and collumns)
+- Assign different color for each snake
+- Implement client/server communication by the TCP protocol
+- Interrupt a snake that gets stuck in a corner and give an end game message
+- Place each snake close to one of the board's borders in load time
+
+

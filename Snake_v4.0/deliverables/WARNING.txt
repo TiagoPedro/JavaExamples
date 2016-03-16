@@ -1,0 +1,2 @@
+O socket do lado do cliente é fechado quando a GUI é fechada, no entanto, o servidor continua a correr,
+sendo necessário terminar manualmente a aplicação através do gestor de tarefas.
